@@ -144,6 +144,7 @@ namespace sgl {
 		{
 			Image image(cube_file[i], pixel_element_size, pixel_structure);
 
+			size_ = image.GetSize();
 			glTexImage2D(
 				GL_TEXTURE_CUBE_MAP_POSITIVE_X + i,
 				0,

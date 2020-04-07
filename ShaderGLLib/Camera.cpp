@@ -25,12 +25,14 @@ namespace sgl {
 		float yaw_rad = glm::radians(yaw_);
 		float pitch_rad = glm::radians(pitch_);
 
-		front_ = position_ + glm::vec3({glm::cos(pitch_rad)*glm::sin(yaw_rad),
+		front_ = position_ + glm::vec3({ glm::cos(pitch_rad) * glm::cos(yaw_rad),
 										glm::sin(pitch_rad),
-										glm::cos(pitch_rad) * glm::cos(yaw_rad)});
+										glm::cos(pitch_rad)* glm::sin(yaw_rad) });
 		front_ = glm::normalize(front_);
 		right_ = glm::cross({0,1,0},front_);
+		right_ = glm::normalize(right_);
 		up_ = glm::cross(front_, right_);
+		up_ = glm::normalize(up_);
 
 	}
 
